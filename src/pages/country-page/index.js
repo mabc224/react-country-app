@@ -44,7 +44,7 @@ const CountryPage = () => {
        <Route exact path="info" element={<CountryPageInfoTab/>}/>
        <Route exact path="currency" element={<CountryPageCurrencyTab/>}/>
        <Route exact path="language" element={<CountryPageLanguageTab/>}/>
-       <Route path="*" element={<Navigate to={`currency`}/>}/>
+       <Route path="*" element={<Navigate to={`info`}/>}/>
       </Route>
      </Routes>
     </div>
