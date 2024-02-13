@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 
 import AppLayouts from '../app/app-layout'
 import Pages from './../pages/index'
@@ -23,6 +24,7 @@ const App = () => {
      }
     />
    </Routes>
+   <ToastContainer/>
   </AppLayouts>
  )
 }

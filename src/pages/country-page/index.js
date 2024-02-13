@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { Route, Routes, Navigate, useParams, useLocation, useMatch } from 'react-router-dom'
+import { Route, Routes, Navigate, useParams, useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 import CountryPageInfoTab from './country-page-info-tab'
 import CountryPageCurrencyTab from './country-page-currency-tab'
 import CountryPageLanguageTab from './country-page-language-tab'
-import { getCountry } from '../../api/country'
+import { useGetCountry } from '../../api/country'
 import { CountryContext } from '../../contexts'
 import Tabs from '../../components/common/core/tabs'
+import { info } from '../../redux/reducers/alert.slice'
 
 const tabs = [
  {label: 'Info', value: 'info', path: 'info'},
@@ -18,18 +20,19 @@ const CountryPage = () => {
  let {name} = useParams()
  let location = useLocation()
  const [country, setCountry] = useState({})
+ const dispatch = useDispatch()
 
  const splitLocationPath = location.pathname.split('/')
  const mainPath = splitLocationPath[1]
 
- useEffect(() => {
-  async function fetchCountry () {
-   let {data} = await getCountry(name)
-   setCountry(data[0])
-  }
+ const {data} = useGetCountry(name)
 
-  fetchCountry()
- }, [])
+ useEffect(() => {
+  if (data && data?.length) {
+   dispatch(info(`Country ${name} fetched successfully!`))
+   setCountry(data[0] || {})
+  }
+ }, [data, dispatch, name])
 
  return (
   <CountryContext.Provider value={country || {}}>
