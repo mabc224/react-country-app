@@ -3,17 +3,16 @@
 ----------------------------------------
 
 # country-web
-Country listing Web application made up with react v17 (hooks) and react-router v6. 
+Country listing Web application made up with react v18 (hooks) and react-router v6. 
 
 
 #### Tech Stack
      axios: 0.25.0
-     react: 17.0.2
-     react-redux: 7.2.6
-     react-router-dom: 6.2.1
-     react-scripts: 5.0.0
-     redux: 4.1.2
-     redux-thunk: 2.4.1
+     react: ^18.2.0
+     react-redux: ^9.1.0
+     react-router-dom: ^6.22.0
+     react-scripts: 5.0.1
+     @reduxjs/toolkit: ^2.1.0
 
 ___
 ### Running the WebApp Locally

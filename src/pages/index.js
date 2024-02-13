@@ -1,6 +1,5 @@
 import React from 'react'
-import { Route, Routes, Redirect } from 'react-router-dom'
-import AppLayouts from '../app/app-layout'
+import { Route, Routes } from 'react-router-dom'
 import CountryListPage from './country-list-page'
 import CountryPage from './country-page'
 

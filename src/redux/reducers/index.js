@@ -1,8 +1,5 @@
-import { combineReducers } from 'redux'
-import alertReducer from './alert'
+import alertSlice from './alert.slice'
 
-const rootReducer = combineReducers({
- alert: alertReducer,
-})
-
-export default rootReducer
+export {
+ alertSlice
+}

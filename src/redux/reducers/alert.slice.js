@@ -1,22 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 const initialState = {
- value: 0,
+ alert: '',
 }
 
 export const alertSlice = createSlice({
  name: 'alert',
  initialState,
  reducers: {
-  info: (state) => {
+  info: (state, {payload}) => {
    // Redux Toolkit allows us to write "mutating" logic in reducers. It
    // doesn't actually mutate the state because it uses the Immer library,
    // which detects changes to a "draft state" and produces a brand new
    // immutable state based off those changes
-   state.value = 'Info'
+   state.alert = 'Info'
+   toast(payload, {autoClose: 3000})
   },
   error: (state) => {
-   state.value = 'Error'
+   state.alert = 'Error'
+   toast.error('Error occurred!', {autoClose: 3000})
   },
  },
 })

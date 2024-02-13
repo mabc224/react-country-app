@@ -1,14 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 import './assets/css/index.css'
+import 'react-toastify/dist/ReactToastify.css'
 import Main from './app/main'
 import reportWebVitals from './reportWebVitals'
 
-ReactDOM.render(
- <React.StrictMode>
+const rootElement = document.getElementById('root')
+const root = createRoot(rootElement)
+
+root.render(
+ <StrictMode>
   <Main/>
- </React.StrictMode>,
- document.getElementById('root')
+ </StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function
